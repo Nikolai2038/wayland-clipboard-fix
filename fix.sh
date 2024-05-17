@@ -3,9 +3,11 @@
 # Exit on any error
 set -e
 
+echo "Installing required packages..." >&2
 # Install CLI utils to work with clipboard: "wl-clipboard" for Wayland and "xclip" for X11
 # inotify-tools - for watching changes in variable
 sudo apt-get update && sudo apt-get install -y wl-clipboard xclip inotify-tools
+echo "Required packages installed!" >&2
 
 # ========================================
 # Create script for the service.
@@ -13,6 +15,8 @@ sudo apt-get update && sudo apt-get install -y wl-clipboard xclip inotify-tools
 # Wayland clipboard is not syncing, but X11 clipboard does.
 # So the script here watches Wayland clipboard content, and when it changes, it copies it to the X11 clipboard content.
 # ========================================
+echo "Creating script..." >&2
+
 # shellcheck disable=SC2016
 echo '#!/bin/sh
 
@@ -41,15 +45,19 @@ while true; do
 
     # Wait before checking again
     sleep 0.2
-done' | sudo tee /usr/local/bin/clipboard-watcher.sh
+done' | sudo tee /usr/local/bin/clipboard-watcher.sh > /dev/null
 
 # Make the script executable
 sudo chmod +x /usr/local/bin/clipboard-watcher.sh
+
+echo "Script created!" >&2
 # ========================================
 
 # ========================================
 # Create service file
 # ========================================
+echo "Creating user service..." >&2
+
 mkdir --parents "${HOME}/.config/systemd/user"
 
 echo '[Unit]
@@ -63,10 +71,14 @@ Restart=on-failure
 
 [Install]
 WantedBy=default.target' > "${HOME}/.config/systemd/user/clipboard-watcher.service"
+echo "User service created!" >&2
 # ========================================
 
+echo "Enabling and starting service..." >&2
 # Reload systemd manager configuration
 systemctl --user daemon-reload
-
 # Enable and start the service
 systemctl --user enable --now clipboard-watcher.service
+echo "Service enabled and started!" >&2
+
+echo "Fix successfully installed!" >&2

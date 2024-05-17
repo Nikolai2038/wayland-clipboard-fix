@@ -13,7 +13,7 @@
 Выполнить внутри виртуальной машины для обычного пользователя:
 
 ```bash
-curl https://raw.githubusercontent.com/Nikolai2038/wayland-clipboard-fix/main/fix.sh | sh
+curl -s https://raw.githubusercontent.com/Nikolai2038/wayland-clipboard-fix/main/fix.sh | sh
 ```
 
 ## 3. Развитие

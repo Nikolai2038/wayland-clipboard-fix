@@ -13,7 +13,7 @@ So the service created by this script here watches Wayland clipboard content, an
 Execute inside virtual machine for usual user:
 
 ```bash
-curl https://raw.githubusercontent.com/Nikolai2038/wayland-clipboard-fix/main/fix.sh | sh
+curl -s https://raw.githubusercontent.com/Nikolai2038/wayland-clipboard-fix/main/fix.sh | sh
 ```
 
 ## 3. Contribution
