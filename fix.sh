@@ -69,4 +69,4 @@ WantedBy=default.target' > "${HOME}/.config/systemd/user/clipboard-watcher.servi
 systemctl --user daemon-reload
 
 # Enable and start the service
-systemctl --user enable now clipboard-watcher.service
+systemctl --user enable --now clipboard-watcher.service
