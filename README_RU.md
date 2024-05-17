@@ -10,10 +10,10 @@
 
 ## 2. Использование
 
-Просто выполнить:
+Выполнить внутри виртуальной машины для обычного пользователя:
 
 ```bash
-./fix.sh
+curl https://raw.githubusercontent.com/Nikolai2038/wayland-clipboard-fix/main/fix.sh | sh
 ```
 
 ## 3. Развитие

@@ -10,10 +10,10 @@ So the service created by this script here watches Wayland clipboard content, an
 
 ## 2. Usage
 
-Just execute:
+Execute inside virtual machine for usual user:
 
 ```bash
-./fix.sh
+curl https://raw.githubusercontent.com/Nikolai2038/wayland-clipboard-fix/main/fix.sh | sh
 ```
 
 ## 3. Contribution
