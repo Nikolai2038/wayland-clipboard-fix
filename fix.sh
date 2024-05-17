@@ -14,7 +14,7 @@ sudo apt-get update && sudo apt-get install -y wl-clipboard xclip inotify-tools
 # So the script here watches Wayland clipboard content, and when it changes, it copies it to the X11 clipboard content.
 # ========================================
 # shellcheck disable=SC2016
-echo '#!/bin/bash
+echo '#!/bin/sh
 
 # Set initial clipboard value
 previous_clipboard_xclip="$(xclip -selection clipboard -o)"
