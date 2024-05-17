@@ -5,8 +5,7 @@ set -e
 
 echo "Installing required packages..." >&2
 # Install CLI utils to work with clipboard: "wl-clipboard" for Wayland and "xclip" for X11
-# inotify-tools - for watching changes in variable
-sudo apt-get update && sudo apt-get install -y wl-clipboard xclip inotify-tools
+sudo apt-get update && sudo apt-get install -y wl-clipboard xclip
 echo "Required packages installed!" >&2
 
 # ========================================
