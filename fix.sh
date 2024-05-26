@@ -5,7 +5,16 @@ set -e
 
 echo "Installing required packages..." >&2
 # Install CLI utils to work with clipboard: "wl-clipboard" for Wayland and "xclip" for X11
-sudo apt-get update && sudo apt-get install -y wl-clipboard xclip
+if pacman --help > /dev/null 2>&1; then
+    # For Arch-based
+    sudo pacman -Sy --noconfirm --needed wl-clipboard xclip || exit "$?"
+elif apt-get --help > /dev/null 2>&1; then
+    # For Debian-based
+    sudo apt-get update && sudo apt-get install -y wl-clipboard xclip || exit "$?"
+else
+    echo "No pacman or apt-get found!" >&2
+    exit 1
+fi
 echo "Required packages installed!" >&2
 
 # ========================================
