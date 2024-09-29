@@ -2,6 +2,8 @@
 
 **EN** | [RU](README_RU.md)
 
+2024-09-29: Archived - use [clipboard-sync](https://github.com/dnut/clipboard-sync) instead.
+
 ## 1. Description
 
 The purpose here is to sync clipboard content when working in VirtualBox.
